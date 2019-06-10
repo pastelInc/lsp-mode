@@ -2286,7 +2286,7 @@ disappearing, unset all the variables related to it."
                                                                                                  "refactor.rewrite"
                                                                                                  "source"
                                                                                                  "source.organizeImports"])))))))
-                     (completion . ((completionItem . ((snippetSupport . ,(if lsp-enable-snippet
+                     (completion . ((dynamicRegistration . t) (completionItem . ((commitCharactersSupport . t) (contentFormat . ["plaintext" "markdown"]) (deprecatedSupport . t) (preselectSupport . t) (snippetSupport . ,(if lsp-enable-snippet
                                                                               (or
                                                                                (fboundp 'yas-expand-snippet)
                                                                                (warn (concat
@@ -2294,7 +2294,9 @@ disappearing, unset all the variables related to it."
                                                                                       "You must either install yasnippet or disable snippet support."))
                                                                                t)
                                                                             :json-false))))
-                                    (contextSupport . t)))
+                                    (contextSupport . t) (completionItemKind . ((valueSet . ,(apply 'vector (number-sequence 1 26)))))
+                                    (executeCommand . ((dynamicRegistration . t)))
+                                    (configuration . t) (workspaceFolders . t)))
                      (signatureHelp . ((signatureInformation . ((parameterInformation . ((labelOffsetSupport . t)))))))
                      (documentLink . ((dynamicRegistration . t)))
                      (hover . ((contentFormat . ["plaintext" "markdown"])))
